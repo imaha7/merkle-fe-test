@@ -9,7 +9,7 @@ export const getUsers = async () => {
   }
 }
 
-export const showUser = async (id: any) => {
+export const showUser = async ({ id }) => {
   const response = await axios.get('/users/' + id)
   try {
     return response
@@ -18,8 +18,8 @@ export const showUser = async (id: any) => {
   }
 }
 
-export const addUser = async (name: string, email: string) => {
-  const response = await axios.post('/users', {name: name, email: email})
+export const addUser = async ({ name, email }) => {
+  const response = await axios.post('/users', { name: name, email: email })
   try {
     return response
   } catch (error) {
@@ -27,8 +27,8 @@ export const addUser = async (name: string, email: string) => {
   }
 }
 
-export const updateUser = async (id: any, name: string, email: string) => {
-  const response = await axios.patch('/users/' + id, {name: name, email: email})
+export const updateUser = async ({ id, name, email }) => {
+  const response = await axios.patch('/users/' + id, { name: name, email: email })
   try {
     return response
   } catch (error) {
